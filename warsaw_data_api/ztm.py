@@ -54,10 +54,10 @@ class ZtmVehicle:
 
 
 class Session:
-    api_key: str
+    apikey: str
 
-    def __init__(self, api_key: str) -> None:
-        self.api_key = api_key
+    def __init__(self, apikey: str) -> None:
+        self.apikey = apikey
 
     def __parse_vehicle_location_data(self, record, vehicle_type: int) -> ZtmVehicle:
         return ZtmVehicle(
@@ -79,14 +79,16 @@ class Session:
         query_params: Dict[str, Union[str, int, None]] = {
             "resource_id": "f2e5503e927d-4ad3-9500-4ab9e55deb59",
             "type": vehicle_type,
-            "api_key": self.api_key,
+            "apikey": self.apikey,
             "line": line,
         }
 
-        response = requests.get(url=url, params=query_params)
+        response = requests.get(url=url, params=query_params).json()
+        if response.get("error"):
+            raise Exception(response["error"])
 
         vehicles = []
-        for record in response.json()["result"]:
+        for record in response["result"]:
             vehicles.append(
                 self.__parse_vehicle_location_data(
                     record=record, vehicle_type=vehicle_type
