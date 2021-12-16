@@ -28,23 +28,23 @@ class Location:
 
 class ZtmVehicle:
     location: Location
-    lines: str
+    line: int
     vehicle_number: str
     time: datetime
-    brigade: str
+    brigade: int
     type: int
 
     def __init__(
         self,
         location: Location,
-        lines: str,
+        line: int,
         vehicle_number: str,
         time: datetime,
-        brigade: str,
+        brigade: int,
         type: int,
     ):
         self.location = location
-        self.lines = lines
+        self.lines = line
         self.vehicle_number = vehicle_number
         self.time = time
         self.brigade = brigade
@@ -61,12 +61,12 @@ class ZtmSession(Session):
     def __parse_vehicle_location_data(self, record, vehicle_type: int) -> ZtmVehicle:
         return ZtmVehicle(
             location=Location(
-                longitude=float(record["Lon"]), latitude=float(record["Lon"])
+                longitude=float(record["Lon"]), latitude=float(record["Lat"])
             ),
-            lines=record["Lines"],
+            line=int(record["Lines"]),
             vehicle_number=record["VehicleNumber"],
-            time=record["Time"],
-            brigade=record["Brigade"],
+            time=datetime.strptime(record["Time"], "%Y-%m-%d %H:%M:%S"), #todo
+            brigade=int(record["Brigade"]),
             type=vehicle_type,
         )
 
