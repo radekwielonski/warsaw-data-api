@@ -13,7 +13,7 @@ setup(
     description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
     packages=find_packages(exclude=["contrib", "docs", "tests*"]),
-    install_requires=[],
+    install_requires=['requests'],
     keywords="python, UM Warszawa, warsaw data api",
     classifiers=[
         "Development Status :: 3 - Alpha",

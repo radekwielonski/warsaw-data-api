@@ -6,6 +6,7 @@ from warsaw_data_api.exceptions import (
     LongitudeOutsideBoundaryException,
     LatitudeOutsideBoundaryException,
 )
+from warsaw_data_api.session import Session
 
 
 @dataclass
@@ -53,11 +54,9 @@ class ZtmVehicle:
         return f"ZtmVehicle(line={self.lines}, type={self.type}, lat={self.location.latitude}, lon={self.location.longitude})"
 
 
-class Session:
-    apikey: str
-
-    def __init__(self, apikey: str) -> None:
-        self.apikey = apikey
+class ZtmSession(Session):
+    def __init__(self, apikey: str = None) -> None:
+        super().__init__(apikey=apikey)
 
     def __parse_vehicle_location_data(self, record, vehicle_type: int) -> ZtmVehicle:
         return ZtmVehicle(
