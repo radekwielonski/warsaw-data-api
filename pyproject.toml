@@ -1,3 +1,10 @@
+[tool.poetry]
+name = "warsaw-data-api"
+description = "Warsaw data python api"
+authors = ["Radoslaw Wielonski"]
+license = "MIT"
+readme = "README.md"
+
 [tool.semantic_release]
 version_variable = [
     "warsaw_data_api/__init__.py:__version__"
