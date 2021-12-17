@@ -51,14 +51,19 @@ class ZtmVehicle:
         self.type = type
 
     def __str__(self):
-        return f"ZtmVehicle(line={self.lines}, type={self.type}, lat={self.location.latitude}, lon={self.location.longitude})"
+        return (
+            f"ZtmVehicle(line={self.lines}, type={self.type}, "
+            "lat={self.location.latitude}, lon={self.location.longitude})"
+        )
 
 
 class ZtmSession(Session):
     def __init__(self, apikey: str = None) -> None:
         super().__init__(apikey=apikey)
 
-    def __parse_vehicle_location_data(self, record, vehicle_type: int) -> ZtmVehicle:
+    def __parse_vehicle_location_data(
+        self, record, vehicle_type: int
+    ) -> ZtmVehicle:
         return ZtmVehicle(
             location=Location(
                 longitude=float(record["Lon"]), latitude=float(record["Lat"])
