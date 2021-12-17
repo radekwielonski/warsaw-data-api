@@ -1,5 +1,8 @@
 [tool.poetry]
 name = "warsaw-data-api"
+version_variable = [
+    "warsaw_data_api/__init__.py:__version__"
+]
 description = "Warsaw data python api"
 authors = ["Radoslaw Wielonski"]
 license = "MIT"
