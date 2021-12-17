@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.1.2 (2021-12-17)
+### Fix
+* Add version to tool.poetry to pyproject.toml ([`f9d490b`](https://github.com/radekwielonski/warsaw-data-api/commit/f9d490ba5e100396458f78a789c45c9e2f63e911))
+
 ## v0.1.1 (2021-12-17)
 ### Fix
 * Add tool.poetry to pyproject.toml ([`cfb5d66`](https://github.com/radekwielonski/warsaw-data-api/commit/cfb5d66ca97f251c4c60858051cdca5544903164))
