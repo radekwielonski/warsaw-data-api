@@ -2,6 +2,14 @@
 
 <!--next-version-placeholder-->
 
+## v0.1.4 (2021-12-17)
+### Fix
+* Remove unused import ([`daa4436`](https://github.com/radekwielonski/warsaw-data-api/commit/daa4436d384e2a3af2a18bc4c322b0e860a301aa))
+
+### Documentation
+* Fix typos and format document ([`9e7e526`](https://github.com/radekwielonski/warsaw-data-api/commit/9e7e52648300c606f3f8205f58ebce2b7d0c20a1))
+* Update README.md with installation guide and instruciton how to pass api key ([`bb759e0`](https://github.com/radekwielonski/warsaw-data-api/commit/bb759e0a5a531fa5a6195a0f01704e9b4b629d3f))
+
 ## v0.1.3 (2021-12-17)
 ### Fix
 * Fix version in tool.poetry in pyproject.toml ([`45b1493`](https://github.com/radekwielonski/warsaw-data-api/commit/45b14935b3a691407bd390df512bef799f0fadef))
