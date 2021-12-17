@@ -1,13 +1,23 @@
+import os
+import re
+
 from setuptools import setup, find_packages
 
-VERSION = "0.0.1"
+
+ROOT = os.path.dirname(__file__)
+VERSION_RE = re.compile(r'''__version__ = ['"]([0-9.]+)['"]''')
+
+def get_version():
+    init = open(os.path.join(ROOT, 'warsaw_data_api', '__init__.py')).read()
+    return VERSION_RE.search(init).group(1)
+
 DESCRIPTION = "Warsaw data python api"
 LONG_DESCRIPTION = "Package which provides pythonic way to use Warsaw data API"
 
 # Setting up
 setup(
     name="warsaw-data-api",
-    version=VERSION,
+    version=get_version(),
     author="Radoslaw Wielonski",
     author_email="<radek.wielonski@gmail.com>",
     description=DESCRIPTION,

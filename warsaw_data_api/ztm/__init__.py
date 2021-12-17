@@ -65,7 +65,7 @@ class ZtmSession(Session):
             ),
             line=int(record["Lines"]),
             vehicle_number=record["VehicleNumber"],
-            time=datetime.strptime(record["Time"], "%Y-%m-%d %H:%M:%S"), #todo
+            time=datetime.strptime(record["Time"], "%Y-%m-%d %H:%M:%S"),
             brigade=int(record["Brigade"]),
             type=vehicle_type,
         )
@@ -82,7 +82,14 @@ class ZtmSession(Session):
             "line": line,
         }
 
-        response = requests.get(url=url, params=query_params).json()
+        r = requests.get(url=url, params=query_params)
+        if r.status_code == requests.codes.ok:
+            response = r.json()
+        else:
+            raise Exception(
+                f"Error fetching data from {url}, status: {r.status_code}"
+            )
+
         if response.get("error"):
             raise Exception(response["error"])
 

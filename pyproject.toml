@@ -1,0 +1,15 @@
+[tool.semantic_release]
+version_variable = [
+    "warsaw_data_api/__init__.py:__version__"
+]
+version_toml = [
+    "pyproject.toml:tool.poetry.version"
+]
+version_pattern = [
+    "README.md:rev: v{version}",
+]
+major_on_zero = false
+branch = "master"
+upload_to_PyPI = true
+upload_to_release = true
+build_command = "pip install poetry && poetry build"
