@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "warsaw-data-api"
-version_variable = [
+version = [
     "warsaw_data_api/__init__.py:__version__"
 ]
 description = "Warsaw data python api"
