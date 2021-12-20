@@ -2,6 +2,10 @@
 
 This package allow to fetch data from API provided by "UM Warszawa" - https://api.um.warszawa.pl/
 
+## Current features
+
+Fetch ZTM buses and trams real-time location
+
 ## Getting Started
 
 ### Installation
