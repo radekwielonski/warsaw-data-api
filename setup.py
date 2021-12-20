@@ -26,7 +26,7 @@ setup(
     long_description=LONG_DESCRIPTION,
     packages=find_packages(exclude=["contrib", "docs", "tests*"]),
     install_requires=["requests"],
-    keywords="python, UM Warszawa, warsaw data api",
+    keywords="python, UM Warszawa, warsaw data api, ztm, public transport",
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Education",
