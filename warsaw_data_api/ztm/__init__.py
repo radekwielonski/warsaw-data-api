@@ -130,8 +130,9 @@ class ZtmSession(Session):
         response = self.__get_data_from_ztm(
             self.schedule_endpoint, query_params
         )
+        clean_response = convert_list_to_dict(response[0]['values'])
         return self.get_bus_stop_schedule_by_id(
-            response["values"][0]["value"], bus_stop_nr, line
+            clean_response['zespol'], bus_stop_nr, line
         )
 
 
