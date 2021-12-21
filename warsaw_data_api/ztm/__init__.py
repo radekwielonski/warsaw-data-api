@@ -95,7 +95,7 @@ class ZtmSession(Session):
     def __parse_multiple_schedule_data(self, schedules) -> List[ZtmRide]:
         rides = []
         for record in schedules:
-            clean_record = convert_list_to_dict(record['values'])
+            clean_record = convert_list_to_dict(record["values"])
             rides.append(self.__parse_schedule_data(clean_record))
 
         return rides
@@ -130,9 +130,9 @@ class ZtmSession(Session):
         response = self.__get_data_from_ztm(
             self.schedule_endpoint, query_params
         )
-        clean_response = convert_list_to_dict(response[0]['values'])
+        clean_response = convert_list_to_dict(response[0]["values"])
         return self.get_bus_stop_schedule_by_id(
-            clean_response['zespol'], bus_stop_nr, line
+            clean_response["zespol"], bus_stop_nr, line
         )
 
 
