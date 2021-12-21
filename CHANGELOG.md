@@ -2,6 +2,14 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.0 (2021-12-21)
+### Feature
+* Add fetching schedule for bus stops ([`010e1f2`](https://github.com/radekwielonski/warsaw-data-api/commit/010e1f2e5005dd9f0d2bb2623055c6676a01f29e))
+
+### Documentation
+* Add current features note to readme ([`136d8b3`](https://github.com/radekwielonski/warsaw-data-api/commit/136d8b3d990510f70d0e0dbf650af95473b09806))
+* Add license and new tags to setup.py ([`2c730f8`](https://github.com/radekwielonski/warsaw-data-api/commit/2c730f82880699ac9e32f1325f5780f4c474cf9d))
+
 ## v0.1.4 (2021-12-17)
 ### Fix
 * Remove unused import ([`daa4436`](https://github.com/radekwielonski/warsaw-data-api/commit/daa4436d384e2a3af2a18bc4c322b0e860a301aa))

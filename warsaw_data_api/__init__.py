@@ -2,7 +2,7 @@ from .session_factory import SessionFactory
 
 
 __author__ = "Radoslaw Wielonski"
-__version__ = "0.1.4"
+__version__ = "0.2.0"
 
 DEFAULT_SESSION = None
 
