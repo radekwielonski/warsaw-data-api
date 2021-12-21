@@ -2,7 +2,7 @@ from datetime import datetime
 import unittest
 import requests_mock
 
-from warsaw_data_api import client
+import warsaw_data_api
 from warsaw_data_api.ztm.models import (
     Location,
     ZtmVehicle,
@@ -16,7 +16,7 @@ class TestZtmLocation(unittest.TestCase):
         pass
 
     def test_get_bus_stop_schedule_by_id(self):
-        ztm = client("ztm", "apikey_for_test")
+        ztm = warsaw_data_api.ztm("apikey_for_test")
         url = "http://test.com/api/1/schedule"
         ztm.schedule_endpoint = url
         with requests_mock.Mocker() as m:
@@ -88,7 +88,7 @@ class TestZtmLocation(unittest.TestCase):
 
 class TestZtmSchedule(unittest.TestCase):
     def test_get_buses_location(self):
-        ztm = client("ztm", "apikey_for_test")
+        ztm = warsaw_data_api.ztm("apikey_for_test")
         url = "http://test.com/api/1/location"
         ztm.location_endpoint = url
         with requests_mock.Mocker() as m:
@@ -154,7 +154,7 @@ class TestZtmSchedule(unittest.TestCase):
             self.assertEqual(result, expected_result)
 
     def test_get_trams_location(self):
-        ztm = client("ztm", "apikey_for_test")
+        ztm = warsaw_data_api.ztm("apikey_for_test")
         url = "http://test.com/api/1/location"
         ztm.location_endpoint = url
         with requests_mock.Mocker() as m:
