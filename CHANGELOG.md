@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.1 (2021-12-21)
+### Fix
+* Fix get_bus_stop_schedule_by_name ([`e313645`](https://github.com/radekwielonski/warsaw-data-api/commit/e313645a5572a4cb518120b332ca242297890ae0))
+
 ## v0.2.0 (2021-12-21)
 ### Feature
 * Add fetching schedule for bus stops ([`010e1f2`](https://github.com/radekwielonski/warsaw-data-api/commit/010e1f2e5005dd9f0d2bb2623055c6676a01f29e))
