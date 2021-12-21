@@ -70,7 +70,7 @@ print(schedule)
 
 We can pass API Key in two different ways:
 
-1. Pass API Key to client function as a parameter `ztm = warsaw_data_api.client('ztm', apikey='your_api_key')`
+1. Pass API Key to factory function (`ztm()` in this case) as a parameter `ztm = warsaw_data_api.ztm(apikey='your_api_key')`
 2. Create environment variable called `WARSAW_DATA_API_KEY`
 
 ## Running tests:
