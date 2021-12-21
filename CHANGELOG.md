@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v0.3.0 (2021-12-21)
+### Feature
+* Refactor factory functions ([`2e6d82a`](https://github.com/radekwielonski/warsaw-data-api/commit/2e6d82abd3d7ec5de50c20628315201806291c19))
+
+### Documentation
+* Update passing api key documentation ([`a09cdc8`](https://github.com/radekwielonski/warsaw-data-api/commit/a09cdc88c2cc7b4435aef71c60472c5590888af7))
+
 ## v0.2.1 (2021-12-21)
 ### Fix
 * Fix get_bus_stop_schedule_by_name ([`e313645`](https://github.com/radekwielonski/warsaw-data-api/commit/e313645a5572a4cb518120b332ca242297890ae0))
