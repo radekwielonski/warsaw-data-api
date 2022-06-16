@@ -4,6 +4,7 @@ version = "0.3.0"
 description = "Warsaw data python api"
 authors = ["Radoslaw Wielonski"]
 license = "MIT"
+homepage = "https://github.com/radekwielonski/warsaw-data-api"
 readme = "README.md"
 
 [tool.semantic_release]
