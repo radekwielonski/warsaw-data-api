@@ -2,3 +2,4 @@ dist
 __pycache__
 *.egg-info
 .mypy_cache
+venv

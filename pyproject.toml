@@ -1,8 +1,6 @@
-[build-system]
-requires = ["setuptools"]
-
-[project]
-dependencies = ["requests"]
+[tool.poetry.dependencies]
+python = "^3.7"
+requests = "^2.30.0"
 
 [tool.poetry]
 name = "warsaw-data-api"
