@@ -1,16 +1,16 @@
-from .models import ZtmSchedule, ZtmRide, ZtmVehicle, Location
 from datetime import datetime
-from typing import List, Dict, Union
+from typing import Any, List, Dict, Optional, Union
 import requests
 
 from warsaw_data_api.session import Session
+from .models import ZtmSchedule, ZtmRide, ZtmVehicle, Location
 
 
 class ZtmSession(Session):
     location_endpoint: str
     schedule_endpoint: str
 
-    def __init__(self, apikey: str = None) -> None:
+    def __init__(self, apikey: Optional[str] = None) -> None:
         super().__init__(apikey=apikey)
         self.location_endpoint = (
             "https://api.um.warszawa.pl/api/action/busestrams_get/"
@@ -20,7 +20,7 @@ class ZtmSession(Session):
         )
 
     def __parse_vehicle_location_data(
-        self, record, vehicle_type: int
+        self, record: Dict[str, str], vehicle_type: int
     ) -> ZtmVehicle:
         return ZtmVehicle(
             location=Location(
@@ -34,7 +34,7 @@ class ZtmSession(Session):
         )
 
     def __parse_multiple_vehicle_location_data(
-        self, records, vehicle_type: int
+        self, records: List[Dict[str, str]], vehicle_type: int
     ) -> List[ZtmVehicle]:
         vehicles = []
         for record in records:
@@ -46,7 +46,7 @@ class ZtmSession(Session):
 
         return vehicles
 
-    def __get_data_from_ztm(self, url, query_params):
+    def __get_data_from_ztm(self, url: str, query_params: Dict[str, Union[str, int, None]]) -> Any:
         r = requests.get(url=url, params=query_params)
         if r.status_code == requests.codes.ok:
             response = r.json()
@@ -58,10 +58,10 @@ class ZtmSession(Session):
         if response.get("error"):
             raise Exception(response["error"])
 
-        return response["result"]
+        return [*response["result"]]  # TODO
 
     def __get_vehicle_location(
-        self, vehicle_type: int, line: str = None
+        self, vehicle_type: int, line: Optional[str] = None
     ) -> List[ZtmVehicle]:
         query_params: Dict[str, Union[str, int, None]] = {
             "resource_id": "f2e5503e927d-4ad3-9500-4ab9e55deb59",
@@ -78,13 +78,13 @@ class ZtmSession(Session):
 
         return vehicles
 
-    def get_buses_location(self, line: str = None) -> List[ZtmVehicle]:
+    def get_buses_location(self, line: Optional[str] = None) -> List[ZtmVehicle]:
         return self.__get_vehicle_location(line=line, vehicle_type=1)
 
-    def get_trams_location(self, line: str = None) -> List[ZtmVehicle]:
+    def get_trams_location(self, line: Optional[str] = None) -> List[ZtmVehicle]:
         return self.__get_vehicle_location(line=line, vehicle_type=2)
 
-    def __parse_schedule_data(self, schedule) -> ZtmRide:
+    def __parse_schedule_data(self, schedule: Dict[str, str]) -> ZtmRide:
         return ZtmRide(
             int(schedule["brygada"]),
             schedule["kierunek"],
@@ -92,7 +92,7 @@ class ZtmSession(Session):
             schedule["czas"],
         )
 
-    def __parse_multiple_schedule_data(self, schedules) -> List[ZtmRide]:
+    def __parse_multiple_schedule_data(self, schedules: List[Dict[str, List[Dict[str, str]]]]) -> List[ZtmRide]:
         rides = []
         for record in schedules:
             clean_record = convert_list_to_dict(record["values"])
@@ -101,7 +101,7 @@ class ZtmSession(Session):
         return rides
 
     def get_bus_stop_schedule_by_id(
-        self, bus_stop_id: int, bus_stop_nr: str, line: str
+        self, bus_stop_id: str, bus_stop_nr: str, line: str
     ) -> ZtmSchedule:
         query_params: Dict[str, Union[str, int, None]] = {
             "id": "e923fa0e-d96c-43f9-ae6e-60518c9f3238",
@@ -115,7 +115,7 @@ class ZtmSession(Session):
         )
         rides = self.__parse_multiple_schedule_data(response)
 
-        ztm_schedule = ZtmSchedule(line, bus_stop_id, bus_stop_nr, rides)
+        ztm_schedule = ZtmSchedule(line, int(bus_stop_id), bus_stop_nr, rides)
 
         return ztm_schedule
 
@@ -137,7 +137,7 @@ class ZtmSession(Session):
 
 
 # utils
-def convert_list_to_dict(input_list):
+def convert_list_to_dict(input_list: List[Dict[str, str]]) -> Dict[str, str]:
     output_dict = {}
     for x in input_list:
         output_dict[x["key"]] = x["value"]

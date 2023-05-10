@@ -48,13 +48,15 @@ class ZtmVehicle:
         self.brigade = brigade
         self.type = type
 
-    def __str__(self):
+    def __str__(self) -> str:
         return (
             f"ZtmVehicle(line={self.lines}, type={self.type}, "
             f"lat={self.location.latitude}, lon={self.location.longitude})"
         )
 
-    def __eq__(self, other):
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, ZtmVehicle):
+            raise NotImplementedError
         return self.__dict__ == other.__dict__
 
 
@@ -92,5 +94,7 @@ class ZtmSchedule:
         self.bus_stop_nr = bus_stop_nr
         self.rides = rides
 
-    def __eq__(self, other):
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, ZtmSchedule):
+            raise NotImplementedError
         return self.__dict__ == other.__dict__

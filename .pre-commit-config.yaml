@@ -1,12 +1,35 @@
 exclude: ^(.github|CHANGELOG.md)
 repos:
--   repo: https://github.com/pre-commit/pre-commit-hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v2.3.0
     hooks:
-    -   id: check-yaml
-    -   id: end-of-file-fixer
-    -   id: trailing-whitespace
--   repo: https://github.com/pycqa/flake8
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+  - repo: https://github.com/pycqa/flake8
     rev: 3.9.2
     hooks:
-    -   id: flake8
+      - id: flake8
+        additional_dependencies: ['importlib-metadata==4.8.3']
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: "" # Use the sha / tag you want to point at
+    hooks:
+      - id: mypy
+        name: ztm-package
+        files: ^warsaw_data_api/
+        entry: mypy warsaw_data_api/ztm
+        pass_filenames: false
+        args: [--strict, --ignore-missing-imports]
+        additional_dependencies: ['types-requests']
+      - id: mypy
+        name: exceptions
+        entry: mypy warsaw_data_api/exceptions.py
+        pass_filenames: false
+        args: [--strict, --ignore-missing-imports]
+        additional_dependencies: ['types-requests']
+      - id: mypy
+        name: session
+        entry: mypy warsaw_data_api/session.py
+        pass_filenames: false
+        args: [--strict, --ignore-missing-imports]
+        additional_dependencies: ['types-requests']

@@ -5,7 +5,7 @@ class WarsawDataApiException(Exception):
 
 class LongitudeOutsideBoundaryException(WarsawDataApiException):
     def __init__(
-        self, longitude, message="Longitude is not in (-180, 180) range"
+        self, longitude: float, message: str = "Longitude is not in (-180, 180) range"
     ):
         self.longitude = longitude
         self.message = message
@@ -13,7 +13,7 @@ class LongitudeOutsideBoundaryException(WarsawDataApiException):
 
 
 class LatitudeOutsideBoundaryException(WarsawDataApiException):
-    def __init__(self, latitude, message="Latitude is not in (-90, 90) range"):
+    def __init__(self, latitude: float, message: str = "Latitude is not in (-90, 90) range"):
         self.latitude = latitude
         self.message = message
         super().__init__(self.message)

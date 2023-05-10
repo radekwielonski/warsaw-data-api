@@ -1,11 +1,11 @@
 import os
-from typing import cast, Union
+from typing import Optional, cast
 
 
 class Session:
-    apikey: Union[str, None]
+    apikey: Optional[str]
 
-    def __init__(self, apikey: Union[str, None] = None) -> None:
+    def __init__(self, apikey: Optional[str] = None) -> None:
         if apikey is None:
             self.apikey = cast(str, os.getenv("WARSAW_DATA_API_KEY"))
         else:
