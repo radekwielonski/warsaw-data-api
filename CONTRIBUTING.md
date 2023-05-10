@@ -21,7 +21,11 @@ If you find an issue you would like to work on, you are welcome to open a PR wit
 3. Run the automatic tests
 
 ```sh
-$ pip install -r requirements.txt
+$ pip install poetry
+```
+
+```sh
+$ poetry install
 ```
 
 ```sh
@@ -30,8 +34,8 @@ $ python -m unittest
 
 4. Install package locally and manually check your changes
 
-```
-python setup.py install
+```sh
+$ poetry install
 ```
 
 5. Don't forget to have pre-commit hooks installed

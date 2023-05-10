@@ -2,6 +2,12 @@
 python = "^3.7"
 requests = "^2.30.0"
 
+[tool.poetry.group.dev.dependencies]
+requests = "2.30.0"
+requests-mock = "1.10.0"
+types-requests = "2.30.0.0"
+urllib3 = "1.26.15"
+
 [tool.poetry]
 name = "warsaw-data-api"
 version = "0.3.3"
