@@ -29,7 +29,7 @@ class ZtmVehicle:
     line: str
     vehicle_number: str
     time: datetime
-    brigade: int
+    brigade: str
     type: int
 
     def __init__(
@@ -38,7 +38,7 @@ class ZtmVehicle:
         line: str,
         vehicle_number: str,
         time: datetime,
-        brigade: int,
+        brigade: str,
         type: int,
     ) -> None:
         self.location = location

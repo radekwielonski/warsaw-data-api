@@ -29,7 +29,7 @@ class ZtmSession(Session):
             line=record["Lines"],
             vehicle_number=record["VehicleNumber"],
             time=datetime.strptime(record["Time"], "%Y-%m-%d %H:%M:%S"),
-            brigade=int(record["Brigade"]),
+            brigade=record["Brigade"],
             type=vehicle_type,
         )
 
