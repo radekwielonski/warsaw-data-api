@@ -58,7 +58,7 @@ class ZtmSession(Session):
         if response.get("error"):
             raise Exception(response["error"])
 
-        return [*response["result"]]  # TODO
+        return response["result"]
 
     def __get_vehicle_location(
         self, vehicle_type: int, line: Optional[str] = None
