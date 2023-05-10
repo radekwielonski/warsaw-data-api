@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v0.3.4 (2023-05-10)
+### Fix
+* Fix str method of ztmvehicle ([`5c97abf`](https://github.com/radekwielonski/warsaw-data-api/commit/5c97abfe67aa9b1459b0d808e4ad13b8eebbf59b))
+
+### Documentation
+* Add contributing.md and move tests docs from readme ([`47f517b`](https://github.com/radekwielonski/warsaw-data-api/commit/47f517b1922e88ebd3283ca7043339bd908ffd42))
+
 ## v0.3.3 (2023-05-10)
 ### Fix
 * Update deps and fix linting issue ([`8946732`](https://github.com/radekwielonski/warsaw-data-api/commit/894673271cd08e8da0afd6a3fda2563a254013f3))
