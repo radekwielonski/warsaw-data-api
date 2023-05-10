@@ -24,7 +24,7 @@ We can fetch all location data for buses:
 ```python
 import warsaw_data_api
 
-ztm = warsaw_data_api.ztm(apikey='your_api_key')
+ztm = warsaw_data_api.ztm(apikey='your_api_key') # you can get API KEY on the https://api.um.warszawa.pl/ after you register
 buses = ztm.get_buses_location()
 
 for bus in buses:
@@ -50,7 +50,7 @@ We can fetch schedule by using bus stop id:
 ```python
 import warsaw_data_api
 
-ztm = warsaw_data_api.ztm(apikey='your_api_key') # you can get API KEY on the https://api.um.warszawa.pl/ after you register
+ztm = warsaw_data_api.ztm(apikey='your_api_key')
 schedule = ztm.get_bus_stop_schedule_by_id(7009, "01", "182")
 print(schedule)
 ```
