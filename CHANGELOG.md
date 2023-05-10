@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.3.5 (2023-05-10)
+### Fix
+* Change type fo brigade from int to str ([`4753a99`](https://github.com/radekwielonski/warsaw-data-api/commit/4753a99fefd41390ffb7b160cb4fd76528b2ed60))
+
 ## v0.3.4 (2023-05-10)
 ### Fix
 * Fix str method of ztmvehicle ([`5c97abf`](https://github.com/radekwielonski/warsaw-data-api/commit/5c97abfe67aa9b1459b0d808e4ad13b8eebbf59b))
