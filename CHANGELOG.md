@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v0.3.3 (2023-05-10)
+### Fix
+* Update deps and fix linting issue ([`8946732`](https://github.com/radekwielonski/warsaw-data-api/commit/894673271cd08e8da0afd6a3fda2563a254013f3))
+* Add poetry dependencies ([`76f6f43`](https://github.com/radekwielonski/warsaw-data-api/commit/76f6f43e22e1578ccd727e1f2a7d88c8b3badbd8))
+* Add deps to pyproject.toml ([`3b4a221`](https://github.com/radekwielonski/warsaw-data-api/commit/3b4a2217e984c171a9af190d18ef4ae001c150cc))
+
 ## v0.3.2 (2023-05-10)
 ### Fix
 * Update pyproject.toml with requires attr ([`62bc56f`](https://github.com/radekwielonski/warsaw-data-api/commit/62bc56fe60a368f9ea72e0b6695e0c80cfea54f3))
