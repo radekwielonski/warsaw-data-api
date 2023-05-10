@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v0.3.1 (2023-05-10)
+### Fix
+* Add requests package to setup_requires ([`686f17e`](https://github.com/radekwielonski/warsaw-data-api/commit/686f17e033dbaed03c724673dbfcbcb9a407b776))
+
+### Documentation
+* Add github page to show in pypi ([`eb1e3a7`](https://github.com/radekwielonski/warsaw-data-api/commit/eb1e3a75ff5eb590cbe76ebd3244c3782e3422aa))
+
 ## v0.3.0 (2021-12-21)
 ### Feature
 * Refactor factory functions ([`2e6d82a`](https://github.com/radekwielonski/warsaw-data-api/commit/2e6d82abd3d7ec5de50c20628315201806291c19))

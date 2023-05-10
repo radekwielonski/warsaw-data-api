@@ -3,7 +3,7 @@ from typing import Union
 
 
 __author__ = "Radoslaw Wielonski"
-__version__ = "0.3.0"
+__version__ = "0.3.1"
 
 
 # factory functions
