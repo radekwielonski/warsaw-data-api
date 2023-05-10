@@ -6,7 +6,7 @@ requests = "^2.30.0"
 name = "warsaw-data-api"
 version = "0.3.2"
 description = "Warsaw data python api"
-authors = ["Radoslaw Wielonski"]
+authors = ["Radoslaw Wielonski <radek.wielonski@gmail.com>"]
 license = "MIT"
 homepage = "https://github.com/radekwielonski/warsaw-data-api"
 readme = "README.md"
@@ -14,17 +14,12 @@ readme = "README.md"
 [tool.semantic_release]
 version_variable = [
     "warsaw_data_api/__init__.py:__version__",
-    "pyproject.toml:version"
+    "pyproject.toml:version",
 ]
-version_toml = [
-    "pyproject.toml:tool.poetry.version"
-]
-version_pattern = [
-    "README.md:rev: v{version}",
-]
+version_toml = ["pyproject.toml:tool.poetry.version"]
+version_pattern = ["README.md:rev: v{version}"]
 major_on_zero = false
 branch = "master"
 upload_to_PyPI = true
 upload_to_release = true
 build_command = "pip install poetry && poetry build"
-
