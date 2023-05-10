@@ -23,3 +23,6 @@ branch = "master"
 upload_to_PyPI = true
 upload_to_release = true
 build_command = "pip install poetry && poetry build"
+
+[build-system]
+requires = ["requests"]
