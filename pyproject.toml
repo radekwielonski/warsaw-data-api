@@ -4,7 +4,7 @@ requests = "^2.30.0"
 
 [tool.poetry]
 name = "warsaw-data-api"
-version = "0.3.3"
+version = "0.3.4"
 description = "Warsaw data python api"
 authors = ["Radoslaw Wielonski <radek.wielonski@gmail.com>"]
 license = "MIT"
