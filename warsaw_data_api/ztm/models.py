@@ -51,7 +51,7 @@ class ZtmVehicle:
     def __str__(self):
         return (
             f"ZtmVehicle(line={self.lines}, type={self.type}, "
-            "lat={self.location.latitude}, lon={self.location.longitude})"
+            f"lat={self.location.latitude}, lon={self.location.longitude})"
         )
 
     def __eq__(self, other):
