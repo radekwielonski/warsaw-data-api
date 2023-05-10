@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.3.2 (2023-05-10)
+### Fix
+* Update pyproject.toml with requires attr ([`62bc56f`](https://github.com/radekwielonski/warsaw-data-api/commit/62bc56fe60a368f9ea72e0b6695e0c80cfea54f3))
+
 ## v0.3.1 (2023-05-10)
 ### Fix
 * Add requests package to setup_requires ([`686f17e`](https://github.com/radekwielonski/warsaw-data-api/commit/686f17e033dbaed03c724673dbfcbcb9a407b776))
