@@ -52,7 +52,7 @@ import warsaw_data_api
 
 ztm = warsaw_data_api.ztm(apikey='your_api_key')
 schedule = ztm.get_bus_stop_schedule_by_id(7009, "01", "182")
-print(schedule)
+print(schedule.rides)
 ```
 
 or we can fetch it by using bus stop name:
@@ -62,7 +62,7 @@ import warsaw_data_api
 
 ztm = warsaw_data_api.ztm(apikey='your_api_key')
 schedule = ztm.get_bus_stop_schedule_by_name("Marszałkowska", "01", "182")
-print(schedule)
+print(schedule.rides)
 
 ```
 
