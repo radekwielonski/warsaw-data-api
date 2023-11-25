@@ -62,14 +62,12 @@ class ZtmVehicle:
 
 @dataclass
 class ZtmRide:
-    brigade: int
+    brigade: str
     direction: str
     route: str
     time: str
 
-    def __init__(
-        self, brigade: int, direction: str, route: str, time: str
-    ) -> None:
+    def __init__(self, brigade: str, direction: str, route: str, time: str) -> None:
         self.brigade = brigade
         self.direction = direction
         self.route = route

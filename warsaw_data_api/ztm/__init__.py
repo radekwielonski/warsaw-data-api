@@ -12,12 +12,8 @@ class ZtmSession(Session):
 
     def __init__(self, apikey: Optional[str] = None) -> None:
         super().__init__(apikey=apikey)
-        self.location_endpoint = (
-            "https://api.um.warszawa.pl/api/action/busestrams_get/"
-        )
-        self.schedule_endpoint = (
-            "https://api.um.warszawa.pl/api/action/dbtimetable_get"
-        )
+        self.location_endpoint = "https://api.um.warszawa.pl/api/action/busestrams_get/"
+        self.schedule_endpoint = "https://api.um.warszawa.pl/api/action/dbtimetable_get"
 
     def __parse_vehicle_location_data(
         self, record: Dict[str, str], vehicle_type: int
@@ -46,14 +42,14 @@ class ZtmSession(Session):
 
         return vehicles
 
-    def __get_data_from_ztm(self, url: str, query_params: Dict[str, Union[str, int, None]]) -> Any:
+    def __get_data_from_ztm(
+        self, url: str, query_params: Dict[str, Union[str, int, None]]
+    ) -> Any:
         r = requests.get(url=url, params=query_params)
         if r.status_code == requests.codes.ok:
             response = r.json()
         else:
-            raise Exception(
-                f"Error fetching data from {url}, status: {r.status_code}"
-            )
+            raise Exception(f"Error fetching data from {url}, status: {r.status_code}")
 
         if response.get("error"):
             raise Exception(response["error"])
@@ -69,12 +65,8 @@ class ZtmSession(Session):
             "apikey": self.apikey,
             "line": line,
         }
-        response = self.__get_data_from_ztm(
-            self.location_endpoint, query_params
-        )
-        vehicles = self.__parse_multiple_vehicle_location_data(
-            response, vehicle_type
-        )
+        response = self.__get_data_from_ztm(self.location_endpoint, query_params)
+        vehicles = self.__parse_multiple_vehicle_location_data(response, vehicle_type)
 
         return vehicles
 
@@ -86,13 +78,15 @@ class ZtmSession(Session):
 
     def __parse_schedule_data(self, schedule: Dict[str, str]) -> ZtmRide:
         return ZtmRide(
-            int(schedule["brygada"]),
+            schedule["brygada"],
             schedule["kierunek"],
             schedule["trasa"],
             schedule["czas"],
         )
 
-    def __parse_multiple_schedule_data(self, schedules: List[Dict[str, List[Dict[str, str]]]]) -> List[ZtmRide]:
+    def __parse_multiple_schedule_data(
+        self, schedules: List[Dict[str, List[Dict[str, str]]]]
+    ) -> List[ZtmRide]:
         rides = []
         for record in schedules:
             clean_record = convert_list_to_dict(record["values"])
@@ -110,9 +104,7 @@ class ZtmSession(Session):
             "busstopNr": bus_stop_nr,
             "line": line,
         }
-        response = self.__get_data_from_ztm(
-            self.schedule_endpoint, query_params
-        )
+        response = self.__get_data_from_ztm(self.schedule_endpoint, query_params)
         rides = self.__parse_multiple_schedule_data(response)
 
         ztm_schedule = ZtmSchedule(line, int(bus_stop_id), bus_stop_nr, rides)
@@ -127,9 +119,7 @@ class ZtmSession(Session):
             "apikey": self.apikey,
             "name": bus_stop_name,
         }
-        response = self.__get_data_from_ztm(
-            self.schedule_endpoint, query_params
-        )
+        response = self.__get_data_from_ztm(self.schedule_endpoint, query_params)
         clean_response = convert_list_to_dict(response[0]["values"])
         return self.get_bus_stop_schedule_by_id(
             clean_response["zespol"], bus_stop_nr, line
