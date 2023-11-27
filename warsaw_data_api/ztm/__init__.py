@@ -97,6 +97,9 @@ class ZtmSession(Session):
     def get_bus_stop_schedule_by_id(
         self, bus_stop_id: str, bus_stop_nr: str, line: str
     ) -> ZtmSchedule:
+        """
+        Get Bus Stop Schedule, it returns ZtmSchedule object
+        """
         query_params: Dict[str, Union[str, int, None]] = {
             "id": "e923fa0e-d96c-43f9-ae6e-60518c9f3238",
             "apikey": self.apikey,
@@ -114,6 +117,16 @@ class ZtmSession(Session):
     def get_bus_stop_schedule_by_name(
         self, bus_stop_name: str, bus_stop_nr: str, line: str
     ) -> ZtmSchedule:
+        """
+        Get Bus Stop Schedule, it returns ZtmSchedule object
+        """
+        bus_stop_id = self.get_bus_stop_id_by_bus_stop_name(bus_stop_name)
+        return self.get_bus_stop_schedule_by_id(bus_stop_id, bus_stop_nr, line)
+
+    def get_bus_stop_id_by_bus_stop_name(self, bus_stop_name: str) -> str:
+        """
+        Get Bus Stop id by providing the Bus Stop name
+        """
         query_params: Dict[str, Union[str, int, None]] = {
             "id": "b27f4c17-5c50-4a5b-89dd-236b282bc499",
             "apikey": self.apikey,
@@ -121,13 +134,14 @@ class ZtmSession(Session):
         }
         response = self.__get_data_from_ztm(self.schedule_endpoint, query_params)
         clean_response = convert_list_to_dict(response[0]["values"])
-        return self.get_bus_stop_schedule_by_id(
-            clean_response["zespol"], bus_stop_nr, line
-        )
+        return clean_response["zespol"]
 
     def get_lines_for_bus_stop_id(
         self, bus_stop_id: str, bus_stop_nr: str
     ) -> List[Optional[str]]:
+        """
+        Get all Bus lines for this bus stop, it returns list of strings
+        """
         query_params: Dict[str, Union[str, int, None]] = {
             "id": "88cd555f-6f31-43ca-9de4-66c479ad5942",
             "apikey": self.apikey,

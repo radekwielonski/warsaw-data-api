@@ -76,6 +76,16 @@ lines = ztm.get_lines_for_bus_stop_id("7009", "01")
 print(lines)
 ```
 
+You can also retrieve bus stop id by passing bus stop name:
+
+```python
+import warsaw_data_api
+
+ztm = warsaw_data_api.ztm(apikey='your_api_key')
+bus_stop_id = ztm.get_bus_stop_id_by_bus_stop_name("Marszałkowska")
+print(bus_stop_id)
+```
+
 ### Passing API Key
 
 We can pass API Key in two different ways:
