@@ -2,6 +2,21 @@
 
 
 
+## v0.5.1 (2023-11-27)
+
+### Chore
+
+* chore: fix pypi release pipeline ([`9566ea1`](https://github.com/radekwielonski/warsaw-data-api/commit/9566ea150955a788713c268b968498dea3aa990f))
+
+* chore: fix pypi release pipeline ([`d199f9e`](https://github.com/radekwielonski/warsaw-data-api/commit/d199f9efbef3302fc12cdce898752815a26e7ee8))
+
+* chore: fix pypi release pipeline ([`adefbf5`](https://github.com/radekwielonski/warsaw-data-api/commit/adefbf5ad95213c7ff053bd64a08f03bdb9f6de4))
+
+### Fix
+
+* fix: add docstring to public methods ([`e9957df`](https://github.com/radekwielonski/warsaw-data-api/commit/e9957df3b05cb00484f64ca718f41d576969e365))
+
+
 ## v0.5.0 (2023-11-27)
 
 ### Feature
