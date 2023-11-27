@@ -23,6 +23,11 @@ class Location:
         else:
             raise LatitudeOutsideBoundaryException(latitude)
 
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Location):
+            raise NotImplementedError
+        return self.__dict__ == other.__dict__
+
 
 class ZtmVehicle:
     location: Location
@@ -57,7 +62,7 @@ class ZtmVehicle:
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, ZtmVehicle):
             raise NotImplementedError
-        return self.__dict__ == other.__dict__
+        return self.__str__() == other.__str__()
 
 
 @dataclass
@@ -72,6 +77,11 @@ class ZtmRide:
         self.direction = direction
         self.route = route
         self.time = time
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, ZtmRide):
+            raise NotImplementedError
+        return self.__dict__ == other.__dict__
 
 
 class ZtmSchedule:

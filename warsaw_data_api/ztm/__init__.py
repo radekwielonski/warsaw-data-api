@@ -125,6 +125,30 @@ class ZtmSession(Session):
             clean_response["zespol"], bus_stop_nr, line
         )
 
+    def get_lines_for_bus_stop_id(
+        self, bus_stop_id: str, bus_stop_nr: str
+    ) -> List[Optional[str]]:
+        query_params: Dict[str, Union[str, int, None]] = {
+            "id": "88cd555f-6f31-43ca-9de4-66c479ad5942",
+            "apikey": self.apikey,
+            "busstopId": bus_stop_id,
+            "busstopNr": bus_stop_nr,
+        }
+        response = self.__get_data_from_ztm(self.schedule_endpoint, query_params)
+        clean_response = convert_lines_output(response)
+        return clean_response
+
+
+def convert_lines_output(
+    input: List[Dict[str, List[Dict[str, str]]]]
+) -> List[Optional[str]]:
+    output_list = []
+    for line in input:
+        line_values = line["values"]
+        retrieved_lines = [value_dict.get("value") for value_dict in line_values]
+        output_list.extend(retrieved_lines)
+    return output_list
+
 
 # utils
 def convert_list_to_dict(input_list: List[Dict[str, str]]) -> Dict[str, str]:
