@@ -72,13 +72,13 @@ class ZtmSession(Session):
 
     def get_buses_location(self, line: Optional[str] = None) -> List[ZtmVehicle]:
         """
-        Get location of all buses with given line number
+        Get location of all buses with given line number, returns List of ZtmVehicle objects
         """
         return self.__get_vehicle_location(line=line, vehicle_type=1)
 
     def get_trams_location(self, line: Optional[str] = None) -> List[ZtmVehicle]:
         """
-        Get location of all trams with given line number
+        Get location of all trams with given line number, returns List of ZtmVehicle objects
         """
         return self.__get_vehicle_location(line=line, vehicle_type=2)
 
