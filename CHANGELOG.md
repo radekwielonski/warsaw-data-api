@@ -2,6 +2,21 @@
 
 
 
+## v0.4.0 (2023-11-27)
+
+### Documentation
+
+* docs: update docs with new method ([`01ada78`](https://github.com/radekwielonski/warsaw-data-api/commit/01ada7862f6c7be0bbe5ab5da8e8918978c450d6))
+
+### Feature
+
+* feat: Add endpoint to retreive lines by bus stop Id ([`98806f5`](https://github.com/radekwielonski/warsaw-data-api/commit/98806f5a2a2be7b70ae74256a6ad74eaa30ead14))
+
+### Test
+
+* test: fix tests after changing brigade type ([`e33c537`](https://github.com/radekwielonski/warsaw-data-api/commit/e33c53712b4af38e51b7a23768c1272db59928b9))
+
+
 ## v0.3.6 (2023-11-25)
 
 ### Documentation
