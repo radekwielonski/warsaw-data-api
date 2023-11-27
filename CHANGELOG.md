@@ -2,6 +2,13 @@
 
 
 
+## v0.5.2 (2023-11-27)
+
+### Fix
+
+* fix: fix pipelines ([`52f081a`](https://github.com/radekwielonski/warsaw-data-api/commit/52f081a619eba0f947c40130d2af9a18a6ed4216))
+
+
 ## v0.5.1 (2023-11-27)
 
 ### Chore
