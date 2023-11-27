@@ -2,6 +2,13 @@
 
 
 
+## v0.5.3 (2023-11-27)
+
+### Fix
+
+* fix: add describtion of return in methods ([`a6c075e`](https://github.com/radekwielonski/warsaw-data-api/commit/a6c075e6ec3dc4411407e5815541ffe49fd8c607))
+
+
 ## v0.5.2 (2023-11-27)
 
 ### Fix
