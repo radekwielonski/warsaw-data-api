@@ -71,9 +71,15 @@ class ZtmSession(Session):
         return vehicles
 
     def get_buses_location(self, line: Optional[str] = None) -> List[ZtmVehicle]:
+        """
+        Get location of all buses with given line number
+        """
         return self.__get_vehicle_location(line=line, vehicle_type=1)
 
     def get_trams_location(self, line: Optional[str] = None) -> List[ZtmVehicle]:
+        """
+        Get location of all trams with given line number
+        """
         return self.__get_vehicle_location(line=line, vehicle_type=2)
 
     def __parse_schedule_data(self, schedule: Dict[str, str]) -> ZtmRide:
