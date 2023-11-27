@@ -15,21 +15,8 @@ repos:
     rev: "" # Use the sha / tag you want to point at
     hooks:
       - id: mypy
-        name: ztm-package
-        files: ^warsaw_data_api/
-        entry: mypy warsaw_data_api/ztm
-        pass_filenames: false
-        args: [--strict, --ignore-missing-imports]
-        additional_dependencies: ['types-requests']
-      - id: mypy
-        name: exceptions
-        entry: mypy warsaw_data_api/exceptions.py
-        pass_filenames: false
-        args: [--strict, --ignore-missing-imports]
-        additional_dependencies: ['types-requests']
-      - id: mypy
-        name: session
-        entry: mypy warsaw_data_api/session.py
+        name: mypy
+        entry: mypy .
         pass_filenames: false
         args: [--strict, --ignore-missing-imports]
         additional_dependencies: ['types-requests']

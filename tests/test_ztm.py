@@ -12,10 +12,7 @@ from warsaw_data_api.ztm.models import (
 
 
 class TestZtmLocation(unittest.TestCase):
-    def test_get_bus_stop_schedule_by_name(self):
-        pass
-
-    def test_get_bus_stop_schedule_by_id(self):
+    def test_get_bus_stop_schedule_by_id(self) -> None:
         ztm = warsaw_data_api.ztm("apikey_for_test")
         url = "http://test.com/api/1/schedule"
         ztm.schedule_endpoint = url
@@ -58,22 +55,22 @@ class TestZtmLocation(unittest.TestCase):
                     ]
                 },
             )
-            result = ztm.get_bus_stop_schedule_by_id(7009, "01", "182")
+            result = ztm.get_bus_stop_schedule_by_id("7009", "01", "182")
             rides = [
                 ZtmRide(
-                    brigade=7,
+                    brigade="7",
                     direction="Witolin",
                     route="TP-OST",
                     time="04:51:00",
                 ),
                 ZtmRide(
-                    brigade=11,
+                    brigade="011",
                     direction="Witolin",
                     route="TP-OST",
                     time="05:11:00",
                 ),
                 ZtmRide(
-                    brigade=1,
+                    brigade="1",
                     direction="Witolin",
                     route="TP-OST",
                     time="05:31:00",
@@ -87,7 +84,7 @@ class TestZtmLocation(unittest.TestCase):
 
 
 class TestZtmSchedule(unittest.TestCase):
-    def test_get_buses_location(self):
+    def test_get_buses_location(self) -> None:
         ztm = warsaw_data_api.ztm("apikey_for_test")
         url = "http://test.com/api/1/location"
         ztm.location_endpoint = url
@@ -130,7 +127,7 @@ class TestZtmSchedule(unittest.TestCase):
                     "130",
                     "1000",
                     datetime(2021, 12, 20, 16, 47, 3),
-                    1,
+                    "1",
                     1,
                 ),
                 ZtmVehicle(
@@ -138,7 +135,7 @@ class TestZtmSchedule(unittest.TestCase):
                     "305",
                     "1001",
                     datetime(2021, 12, 20, 16, 47, 1),
-                    1,
+                    "1",
                     1,
                 ),
                 ZtmVehicle(
@@ -146,14 +143,15 @@ class TestZtmSchedule(unittest.TestCase):
                     "213",
                     "1002",
                     datetime(2021, 12, 20, 16, 47, 7),
-                    1,
+                    "1",
                     1,
                 ),
             ]
             result = ztm.get_buses_location()
             self.assertEqual(result, expected_result)
 
-    def test_get_trams_location(self):
+    def test_get_trams_location(self) -> None:
+        self.maxDiff = None
         ztm = warsaw_data_api.ztm("apikey_for_test")
         url = "http://test.com/api/1/location"
         ztm.location_endpoint = url
@@ -196,7 +194,7 @@ class TestZtmSchedule(unittest.TestCase):
                     "35",
                     "1123+1122",
                     datetime(2021, 12, 21, 10, 19, 21),
-                    14,
+                    "14",
                     2,
                 ),
                 ZtmVehicle(
@@ -204,7 +202,7 @@ class TestZtmSchedule(unittest.TestCase):
                     "22",
                     "1237+1238",
                     datetime(2021, 12, 21, 10, 19, 19),
-                    10,
+                    "10",
                     2,
                 ),
                 ZtmVehicle(
@@ -212,7 +210,7 @@ class TestZtmSchedule(unittest.TestCase):
                     "22",
                     "1239+1240",
                     datetime(2021, 12, 21, 10, 19, 20),
-                    1,
+                    "1",
                     2,
                 ),
             ]
