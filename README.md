@@ -51,7 +51,7 @@ We can fetch schedule by using bus stop id:
 import warsaw_data_api
 
 ztm = warsaw_data_api.ztm(apikey='your_api_key')
-schedule = ztm.get_bus_stop_schedule_by_id(7009, "01", "182")
+schedule = ztm.get_bus_stop_schedule_by_id("7009", "01", "182")
 print(schedule.rides)
 ```
 
@@ -64,6 +64,16 @@ ztm = warsaw_data_api.ztm(apikey='your_api_key')
 schedule = ztm.get_bus_stop_schedule_by_name("Marszałkowska", "01", "182")
 print(schedule.rides)
 
+```
+
+if you would like to retrieve all buses for the bus stop you can use this:
+
+```python
+import warsaw_data_api
+
+ztm = warsaw_data_api.ztm(apikey='your_api_key')
+lines = ztm.get_lines_for_bus_stop_id("7009", "01")
+print(lines)
 ```
 
 ### Passing API Key
