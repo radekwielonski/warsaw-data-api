@@ -2,6 +2,13 @@
 
 
 
+## v0.5.0 (2023-11-27)
+
+### Feature
+
+* feat: add method to retreive bus stop id with bus stop name ([`55dda8d`](https://github.com/radekwielonski/warsaw-data-api/commit/55dda8df020090fa1dc0d6052f7edc4a8ef3f2d3))
+
+
 ## v0.4.0 (2023-11-27)
 
 ### Documentation

@@ -10,7 +10,7 @@ urllib3 = "1.26.15"
 
 [tool.poetry]
 name = "warsaw-data-api"
-version = "0.4.0"
+version = "0.5.0"
 description = "Warsaw data python api"
 authors = ["Radoslaw Wielonski <radek.wielonski@gmail.com>"]
 license = "MIT"
